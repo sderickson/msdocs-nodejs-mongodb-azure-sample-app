@@ -16,7 +16,7 @@ async function getApp() {
   const mongoUri = process.env.MONGODB_URI; // For App Service, change to process.env.AZURE_COSMOS_CONNECTIONSTRING || process.env.MONGODB_URI;
 
   mongoose.connect(mongoUri).then(() => {
-    console.log('Connected to database');
+    console.log('Connected to database...');
   }).catch((err) => {
     console.error('Error connecting to database:', err);
   });
