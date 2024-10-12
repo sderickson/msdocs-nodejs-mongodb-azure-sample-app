@@ -12,7 +12,6 @@ var indexRouter = require("./routes/index");
 async function getApp() {
 
   // Database
-  // Use AZURE_COSMOS_CONNECTIONSTRING if available, otherwise fall back to MONGODB_URI
   const mongoUri = process.env.AZURE_COSMOS_CONNECTIONSTRING || process.env.MONGODB_URI;
 
   mongoose.connect(mongoUri).then(() => {
@@ -37,13 +36,10 @@ async function getApp() {
   app.use(express.static(path.join(__dirname, "public")));
 
   app.locals.format = format;
-
+  
   app.use("/", indexRouter);
-  app.use("/js", express.static(__dirname + "/node_modules/bootstrap/dist/js")); // redirect bootstrap JS
-  app.use(
-    "/css",
-    express.static(__dirname + "/node_modules/bootstrap/dist/css")
-  ); // redirect CSS bootstrap
+  app.use("/js/bootstrap", express.static(__dirname + "/node_modules/bootstrap/dist/js"));
+  app.use("/css", express.static(__dirname + "/node_modules/bootstrap/dist/css"));
 
   // catch 404 and forward to error handler
   app.use(function (req, res, next) {

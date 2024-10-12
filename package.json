@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "build": "rollup -c"
   },
   "dependencies": {
     "bootstrap": "^5.3.3",
@@ -14,6 +15,13 @@
     "http-errors": "~2.0.0",
     "mongoose": "^8.6.3",
     "morgan": "~1.10.0",
-    "pug": "^3.0.3"
+    "pug": "^3.0.3",
+    "retell-client-js-sdk": "^2.0.4",
+    "retell-sdk": "^4.7.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^28.0.0",
+    "@rollup/plugin-node-resolve": "^15.3.0",
+    "rollup": "^4.24.0"
   }
 }

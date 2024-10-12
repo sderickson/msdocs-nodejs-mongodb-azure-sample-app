@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample App</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <script src='/js/bundle.js'>
+    </script>
+    <script>
+        async function main() {
+            const call_id = document.location.href.split('call_id=')[1];
+            const response = await fetch(`/web-call/details?call_id=${call_id}`);
+            const data = await response.json();
+            await retellWebClient.startCall({
+                accessToken: data.access_token,
+            });
+        }
+        main();
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Retell Call...</h1>
+    </header>
+    <script src='/js/bootstrap/bootstrap.min.js' />
+</body>
+</html>
