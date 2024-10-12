@@ -3,6 +3,10 @@ var Task = require('../models/task');
 
 var router = express.Router();
 
+router.get('/test', function(req, res, next) {
+  res.send('API is working properly');
+});
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   Task.find()
